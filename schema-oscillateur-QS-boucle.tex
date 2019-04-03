@@ -1,0 +1,72 @@
+\documentclass{luaCJ-stand}
+\setmathfont{Fira Math}
+
+\defaultfontfeatures{Scale = MatchUppercase}
+
+\setmainfont{FiraSans}[
+Path = /usr/local/texlive/2018/texmf-dist/fonts/opentype/public/fira/,
+Extension = .otf ,
+UprightFont = *-Regular,
+BoldFont = *-Bold,
+ItalicFont = *-Italic,
+BoldItalicFont = *-BoldItalic]
+
+\setsansfont{FiraSans}[
+Path = /usr/local/texlive/2018/texmf-dist/fonts/opentype/public/fira/,
+Extension = .otf ,
+UprightFont = *-Regular,
+BoldFont = *-Bold,
+ItalicFont = *-Italic,
+BoldItalicFont = *-BoldItalic]
+
+\setmonofont{Fira Mono}
+
+\begin{document}
+\begin{tikzpicture}[circuit ee IEC]
+  \node[shape = OA+-] (OA) {};
+  \draw (OA.-) 
+        --
+        ++(0,-1)
+        coordinate[alias = R2Left] (R1Top)
+        to[
+           resistor = {%
+             info' = $R_1$,
+           },
+        ]
+        ++(0,-\tikzDipoleWidth)
+        coordinate[alias = R1Ground] (R1Bottom)
+        node[ground] {};
+  \draw (R2Left)
+        to[
+           resistor = {%
+             info' = $R_2$,
+           },
+        ]
+        (OA.out |- R2Left)
+        coordinate (R2Right)
+        --
+        (OA.out);
+  \draw (OA.+)
+        --
+        ++(-1,0)
+        coordinate (In);
+  \draw (OA.out)
+        --
+        ++(1,0)
+        coordinate (Out);
+  \node[ground] (InGround) at (In |- R1Ground) {};
+  \node[ground] (OutGround) at (Out |- R1Ground) {};
+  \draw[Voltage] (InGround) -- node[left] {$e(t)$} (In);
+  \draw[Voltage] (OutGround) -- node[right] {$s(t)$} (Out);
+  \draw (OA.input north) to (OA.input north on rectangle);
+  \node[shape = band-pass filter, anchor = west, label = below:Passe-Bande] (BPF) at ($(Out)+(1,0)$) {}; 
+  \draw (Out) -- (BPF.west);
+  \draw (BPF.east) -- ++(1,0) -- ++(0,1.5) -| (In);
+\end{tikzpicture}
+\end{document}
+
+
+% Local Variables:
+% coding: utf-8-unix
+% TeX-engine: luatex
+% End:
