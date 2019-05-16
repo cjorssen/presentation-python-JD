@@ -271,14 +271,20 @@ BoldItalicFont = *-BoldItalic]
 
 % </boxes>
 
+\usepackage{enumitem}
+\setlist[itemize]{label = \faChevronRight}
+
+\usepackage[type = {CC}, modifier = {by-sa}, version = {3.0}]{doclicense}
+
 \title{Une introduction à Python}
 
 \institute[]{Lycée Jacques Decour -- Paris}
 
 \author[C. Jorssen]{%
   Christophe Jorssen\\
-  \footnotesize\href{mailto:christophe.jorssen@gmail.com}{christophe.jorssen@gmail.com} \\
-  \footnotesize\url{https://github.com/cjorssen/presentation-python-JD}}
+  \color{GoogleGreen}\itshape\small Professeur de Physique-Chimie en PSI (et d'Informatique)\\[5pt]
+  \color{GoogleRed}\normalfont\footnotesize\href{mailto:christophe.jorssen@gmail.com}{christophe.jorssen@gmail.com} \\
+  \color{GoogleYellow}\footnotesize\url{https://github.com/cjorssen/presentation-python-JD}}
 
 \date{Jeudi 4 avril 2019}
 
@@ -286,6 +292,10 @@ BoldItalicFont = *-BoldItalic]
 
 \begin{frame}
   \titlepage
+\end{frame}
+
+\begin{frame}
+  \doclicenseThis
 \end{frame}
 
 \begin{frame}
@@ -297,6 +307,16 @@ BoldItalicFont = *-BoldItalic]
 \end{frame}
 
 \section{Un peu de « vécu »}
+
+\begin{frame}
+  \begin{Card}
+    Pour commencer, quelques exemples utilisés :
+    \begin{itemize}
+    \item dans ma classe ;
+    \item dans le cadre du MOOC « Physique : préparation à l'entrée dans l'enseignement supérieur » de l'École Polytechnique dont je suis un des coauteurs.
+    \end{itemize}
+  \end{Card}
+\end{frame}
 
 \subsection{Oscillateur quasi sinusoïdal}
 
@@ -320,13 +340,41 @@ BoldItalicFont = *-BoldItalic]
   \centering\includegraphics[height = .9\textheight]{plot-oscillateur-QS-python}
 \end{frame}
 
+\begin{frame}
+  \url{https://github.com/cjorssen/presentation-python-JD/blob/master/python/oscillateurQS-2.py}
+\end{frame}
+
 \subsection{Trajectoire d'un projectile}
+
+\begin{frame}
+  \url{https://github.com/cjorssen/presentation-python-JD/blob/master/python/chute-libre.ipynb}
+\end{frame}
+
+\begin{frame}
+  \url{https://github.com/cjorssen/presentation-python-JD/blob/master/python/volant.ipynb}
+\end{frame}
 
 \subsection{Propagation d'un paquet d'onde}
 
+\begin{frame}
+  \url{https://github.com/cjorssen/presentation-python-JD/blob/master/python/plot3D-paquet-onde.ipynb}
+\end{frame}
+
 \subsection{Analyse spectrale du son d'une flûte, mode propres d'une corde pincée}
 
+\begin{frame}
+  \url{https://github.com/cjorssen/presentation-python-JD/blob/master/python/FFT-flute.ipynb}
+\end{frame}
+
+\begin{frame}
+  \url{https://github.com/cjorssen/presentation-python-JD/blob/master/python/onde-stationnaire.ipynb}
+\end{frame}
+
 \subsection{Propagation d'une onde le long d'une « échelle de perroquet »}
+
+\begin{frame}
+  \url{https://github.com/cjorssen/presentation-python-JD/blob/master/python/echelle-de-perroquet.ipynb}
+\end{frame}
 
 
 \section{Installation et mise à jour de l'écosystème Python}
@@ -527,8 +575,8 @@ BoldItalicFont = *-BoldItalic]
 
 \section{Introduction au langage Python}
 
-\begin{frame}
-  On continue dans un \emph{notebook} !
+\begin{frame}[fragile]
+  On continue dans les \emph{notebooks} : d'abord \url{https://github.com/cjorssen/presentation-python-JD/blob/master/python/utiliser-les-notebooks.ipynb} puis \url{https://github.com/cjorssen/presentation-python-JD/blob/master/python/%C3%80%20la%20d%C3%A9couverte%20de%20Python.ipynb}.
 \end{frame}
 
 \section{Quelques outils pour l'enseignement de Python}
